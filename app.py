@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
@@ -26,6 +27,7 @@ def do_admin_login():
     query = s.query(User).filter(User.username.in_([POST_USERNAME]), User.password.in_([POST_PASSWORD]) )
     result = query.first()
     if result:
+        print('session logged_in = True', file=sys.stderr)
         session['logged_in'] = True
     else:
         flash('wrong password!')
