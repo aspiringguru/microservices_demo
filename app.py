@@ -18,7 +18,7 @@ def home():
 @app.route('/login', methods=['POST'])
 def do_admin_login():
 
-POST_USERNAME = str(request.form['username'])
+    POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
 
     Session = sessionmaker(bind=engine)
